@@ -1,2 +1,5 @@
 # Python-Julia-Sjoholm
-Python course AI23 ITHS
+*AI23*
+- Python
+- course 
+- ITHS
