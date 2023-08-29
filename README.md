@@ -6,3 +6,4 @@
 ``` python
 print('Hej')
 ```
+print('hej')
