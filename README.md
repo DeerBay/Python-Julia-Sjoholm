@@ -1,13 +1,5 @@
 # Python-Julia-Sjoholm
-## Hej
-###  Hej
-#### Hej
-*AI23*
-- Python
-- course 
-- ITHS
-``` python
-print('Hej')
-```
-print('hej') 
+## Course description
+
+This course is a introduction to Python. Here You'll find code alongs, exercises, labs and exploartions.
 
