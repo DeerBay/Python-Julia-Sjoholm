@@ -1,0 +1,2 @@
+adam, AI23, adam@gmail.com
+kalle, AI23, kalle@gmail.com
