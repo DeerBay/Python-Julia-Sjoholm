@@ -62,3 +62,5 @@ def wins_over(sign_a, sign_b):
     return False
 
 main()
+
+# Add a score for each round
