@@ -9,6 +9,7 @@ matplotlib = "*"
 numpy = "*"
 pandas = "*"
 sympy = "*"
+num2words = "*"
 
 [dev-packages]
 
