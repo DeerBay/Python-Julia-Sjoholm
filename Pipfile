@@ -10,6 +10,7 @@ numpy = "*"
 pandas = "*"
 sympy = "*"
 num2words = "*"
+pytest = "*"
 
 [dev-packages]
 
