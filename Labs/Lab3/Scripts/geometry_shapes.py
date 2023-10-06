@@ -22,13 +22,13 @@ class GeometryShapes:
 
     @property
     def y(self):
-        return self.y
+        return self._y
     
     @y.setter
-    def x(self, position: (int|float)):
+    def y(self, position: (int|float)):
         if not isinstance(position, (int|float)):
-            raise TypeError(f"Position of x can only be numeric.")
-        self._x = position
+            raise TypeError(f"Position of y can only be numeric.")
+        self._y = position
     
     '''Operator overloading'''
 
