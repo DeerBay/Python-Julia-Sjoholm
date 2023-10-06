@@ -1,5 +1,5 @@
 class GeometryShapes:
-    '''Has two subclasses, Circel, and Rectangel'''t
+    '''Has two subclasses, Circel, and Rectangel'''
     def __init__(self, x: (int|float), y:(int|float)):
         self.x = x
         self.y = y
@@ -9,6 +9,26 @@ class GeometryShapes:
 
     def __repr__(self):
         return f'"Shape"({self.x =}, {self.y=})'
+    
+    @property
+    def x(self):
+        return self._x   
+   
+    @x.setter
+    def x(self, position: (int|float)):
+        if not isinstance(position, (int|float)):
+            raise TypeError(f"Position of x can only be numeric.")
+        self._x = position
+
+    @property
+    def y(self):
+        return self.y
+    
+    @y.setter
+    def x(self, position: (int|float)):
+        if not isinstance(position, (int|float)):
+            raise TypeError(f"Position of x can only be numeric.")
+        self._x = position
     
     '''Operator overloading'''
 
