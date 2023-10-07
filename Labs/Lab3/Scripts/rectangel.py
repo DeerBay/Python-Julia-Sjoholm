@@ -23,6 +23,12 @@ class Rectangel(GeometryShapes):
     def circumference(self):
         '''Calculate the circumference of the rectangel'''
         return self.height*2 + self.width*2
+    
+    def is_square(self):
+        if self.height == self.width:
+            return f"This rectangel is a square."
+        else:
+            return f"This rectangel is not a square."
 
     @property
     def height(self):
