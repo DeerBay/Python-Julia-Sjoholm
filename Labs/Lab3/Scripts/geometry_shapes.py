@@ -19,9 +19,9 @@ class GeometryShapes:
         return self._x   
    
     @x.setter
-    def x(self, x: (int|float)):
+    def x(self, x):
         '''Setter of x, with error handling'''
-        if not isinstance(x, (int|float)):
+        if not isinstance(x, (int, float)):
             print(f"Position of x can only be numeric. You wrote: {x}.")
             raise TypeError("Position of x can only be numeric (GeometryShapes(x, y))")
         self._x = x
@@ -32,9 +32,9 @@ class GeometryShapes:
         return self._y
     
     @y.setter
-    def y(self, y: (int|float)):
+    def y(self, y):
         '''Setter of y, with error handling'''
-        if not isinstance(y, (int|float)):
+        if not isinstance(y, (int, float)):
             print(f"Position of y can only be numeric. You wrote: {y}.")
             raise TypeError(f"Position of y can only be numeric (GeometryShapes(x, y)).")
         self._y = y

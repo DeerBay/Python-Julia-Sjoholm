@@ -38,8 +38,8 @@ class Rectangel(GeometryShapes):
     @height.setter
     def height(self, height):
         '''Setter of height, with error handling'''
-        if not isinstance(height, (int|float)):
-            raise TypeError(f"Value of height can only be numeric. You wrote {height}.")
+        if not isinstance(height, (int, float)):
+            raise TypeError(f"Value of height can only be numeric. You wrote '{height}'.")
         elif height <= 0:
             raise ValueError(f"Height must be positive. You wrote {height}.")
         self._height = height
@@ -49,9 +49,9 @@ class Rectangel(GeometryShapes):
         return self._width
     
     @width.setter
-    def width(self, width: (int|float)):
-        if not isinstance(width, (int|float)):
-            raise TypeError(f"Value of Width can only be numeric. You wrote {width}.")
+    def width(self, width: (int, float)):
+        if not isinstance(width, (int, float)):
+            raise TypeError(f"Value of width can only be numeric. You wrote '{width}'.")
         elif width <= 0:
             raise ValueError(f"Width must be positive. You wrote {width}.")
         self._width = width
