@@ -11,7 +11,7 @@ class GeometryShapes:
 
     def __repr__(self):
         '''Return a string for developers'''
-        return f'"Shape"({self.x =}, {self.y=})'
+        return f'"GeometryShapes"({self.x =}, {self.y=})'
     
     @property
     def x(self):
