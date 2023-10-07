@@ -11,7 +11,7 @@ class GeometryShapes:
 
     def __repr__(self):
         '''Return a string for developers'''
-        return f'"GeometryShapes"({self.x =}, {self.y=})'
+        return f"GeometryShapes({self.x =}, {self.y=})"
     
     @property
     def x(self):
@@ -19,11 +19,12 @@ class GeometryShapes:
         return self._x   
    
     @x.setter
-    def x(self, position: (int|float)):
+    def x(self, x: (int|float)):
         '''Setter of x, with error handling'''
-        if not isinstance(position, (int|float)):
-            raise TypeError(f"Position of x can only be numeric.")
-        self._x = position
+        if not isinstance(x, (int|float)):
+            print(f"Position of x can only be numeric. You wrote: {x}.")
+            raise TypeError("Position of x can only be numeric (GeometryShapes(x, y))")
+        self._x = x
 
     @property
     def y(self):
@@ -31,11 +32,12 @@ class GeometryShapes:
         return self._y
     
     @y.setter
-    def y(self, position: (int|float)):
+    def y(self, y: (int|float)):
         '''Setter of y, with error handling'''
-        if not isinstance(position, (int|float)):
-            raise TypeError(f"Position of y can only be numeric.")
-        self._y = position
+        if not isinstance(y, (int|float)):
+            print(f"Position of y can only be numeric. You wrote: {y}.")
+            raise TypeError(f"Position of y can only be numeric (GeometryShapes(x, y)).")
+        self._y = y
     
     '''Operator overloading for equal, not equal, greater than, less than, greater or equal and less or equal for calculated areas.'''
     def __eq__(self, other):

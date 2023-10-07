@@ -36,7 +36,7 @@ class Rectangel(GeometryShapes):
         return self._height
     
     @height.setter
-    def height(self, height: (int|float)):
+    def height(self, height):
         '''Setter of height, with error handling'''
         if not isinstance(height, (int|float)):
             raise TypeError(f"Value of height can only be numeric. You wrote {height}.")
