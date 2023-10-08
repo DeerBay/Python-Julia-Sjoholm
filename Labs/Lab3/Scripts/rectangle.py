@@ -46,7 +46,7 @@ class Rectangle(GeometryShapes):
     
     @height.setter
     def height(self, height):
-        '''Setter of height, with error handling'''
+        '''Setter of height. Only positive numeric values is valid input.'''
         if not isinstance(height, (int, float)):
             raise TypeError(f"Value of height can only be numeric. You wrote '{height}'.")
         elif height <= 0:
