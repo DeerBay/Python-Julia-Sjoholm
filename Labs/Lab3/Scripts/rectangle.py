@@ -17,11 +17,11 @@ class Rectangle(GeometryShapes):
         return f"Rectangle({self.x},{self.y},{self.height},{self.width})"
 
     def calculate_area(self):
-        '''Calcultate the area of the rectangle'''
+        '''Calcultate the area of the rectangle. Return float.'''
         return self.height * self.width
     
     def circumference(self):
-        '''Calculate the circumference of the rectangle'''
+        '''Calculate the circumference of the rectangle. Returns float.'''
         return self.height*2 + self.width*2
     
     def is_square(self):
@@ -30,8 +30,14 @@ class Rectangle(GeometryShapes):
         else:
             return f"This rectangle is not a square."
         
-    def is_inside():
-        pass
+    def is_point_inside(self, point_x: (int, float), point_y: (int, float)):
+        '''Checks if point (point_x, point_y) is inside rectangle. Returns bool (True/False)'''
+        left_boundary = self._x - self.width/2
+        right_boundary = self._x + self.width/2
+        top_boundary =  self._y + self.height/2
+        bottom_boundary = self._y - self.height/2
+
+        return left_boundary <= point_x <= right_boundary and  bottom_boundary <= point_y <= top_boundary
 
     @property
     def height(self):
