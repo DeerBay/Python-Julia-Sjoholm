@@ -47,21 +47,26 @@ class GeometryShapes:
             raise TypeError(f"Position of y can only be numeric (GeometryShapes(x, y)).")
         self._y = y
     
-    '''Operator overloading for equal, not equal, greater than, less than, greater or equal and less or equal for calculated areas.'''
     def __eq__(self, other):
+        '''Operator overload for equal.'''
         return self.calculate_area() == other.calculate_area()
 
     def __ne__(self, other):
+        '''Operator overload for not equal.'''
         return self.calculate_area() != other.calculate_area()
     
     def __gt__(self, other):
+        '''Operator overload for greater than.'''
         return self.calculate_area() > other.calculate_area()
     
     def __lt__(self, other):
+        '''Operator overload for less than.'''
         return self.calculate_area() < other.calculate_area()
     
     def __ge__(self, other):
+        '''Operator overload for greater than or equal to.'''
         return self.calculate_area() >= other.calculate_area()
     
     def __le__(self, other):
+        '''Operator overload for less than or equal to.'''
         return self.calculate_area() <= other.calculate_area()

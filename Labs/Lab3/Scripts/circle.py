@@ -1,7 +1,9 @@
 from geometry_shapes import GeometryShapes
 
 class Circle(GeometryShapes):
+    '''Class representation of circle'''
     def __init__(self, x: int | float, y: int | float, radius):
+        '''Initialize a circle with given x and y coordinates and radius.'''
         super().__init__(x, y)
         self.radius = radius
 
@@ -24,14 +26,14 @@ class Circle(GeometryShapes):
         return np.pi * self.radius**2
 
     def is_unit_circle(self):
-        '''calculates the squared distance from the center of the circle to the origin. Then, the method checks if this squared distance is equal to 1. If it is, the circle is a unit circle; otherwise, it is not.'''
-        distance_to_origin = (self.x - 0) ** 2 + (self.y - 0) ** 2
-        if distance_to_origin == 1:
-            print("This is a unit circle.")
-        else:
-            print("This is not a unit circle.")
+        '''Checks if the circle is a unit circle with center at (0, 0) and radius of 1.'''
+        if self.x == 0 and self.y == 0 and self.radius == 1:
+            return True
+        else: 
+            return False
 
     def is_point_inside(self, point_x: (int, float), point_y: (int, float)):
+        '''Checks if point (point_x, point_y) is inside circle. Returns bool (True/False).'''
         distance_to_point = (self.x - point_x)**2 + (self.y - point_y)**2
         if distance_to_point <= self.radius**2:
             print(f"The point({point_x},{point_y}) is inside the circle.")

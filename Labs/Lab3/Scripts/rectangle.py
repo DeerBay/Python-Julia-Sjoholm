@@ -3,7 +3,7 @@ from geometry_shapes import GeometryShapes
 class Rectangle(GeometryShapes):
     '''Class representing a rectangle'''
     def __init__(self, x: int | float, y: int | float, height: int|float, width: int|float):
-        '''Initialize a rectangle with given x and y coordinates, height and width'''
+        '''Initialize a rectangle with given x and y coordinates, height and width.'''
         super().__init__(x, y)
         self.height = height
         self.width = width
@@ -25,13 +25,14 @@ class Rectangle(GeometryShapes):
         return self.height*2 + self.width*2
     
     def is_square(self):
+        '''Checks if the rectangel is a square.'''
         if self.height == self.width:
             return f"This rectangle is a square."
         else:
             return f"This rectangle is not a square."
         
     def is_point_inside(self, point_x: (int, float), point_y: (int, float)):
-        '''Checks if point (point_x, point_y) is inside rectangle. Returns bool (True/False)'''
+        '''Checks if point (point_x, point_y) is inside rectangle. Returns bool (True/False).'''
         left_boundary = self._x - self.width/2
         right_boundary = self._x + self.width/2
         top_boundary =  self._y + self.height/2
@@ -55,10 +56,12 @@ class Rectangle(GeometryShapes):
 
     @property
     def width(self):
+        '''Getter of width'''
         return self._width
     
     @width.setter
     def width(self, width: (int, float)):
+        '''Setter of width. Only positive numeric values is valid input.'''
         if not isinstance(width, (int, float)):
             raise TypeError(f"Value of width can only be numeric. You wrote '{width}'.")
         elif width <= 0:
