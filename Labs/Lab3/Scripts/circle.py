@@ -21,7 +21,7 @@ class Circle(GeometryShapes):
     def circumference(self):
         '''Calcultate the circumference of the circle. Returns float.'''
         import numpy as np
-        return 2 * np.pi * self.radius
+        return np.pi * self.radius**2
 
     def is_unit_circle(self):
         '''calculates the squared distance from the center of the circle to the origin. Then, the method checks if this squared distance is equal to 1. If it is, the circle is a unit circle; otherwise, it is not.'''
@@ -31,8 +31,12 @@ class Circle(GeometryShapes):
         else:
             print("This is not a unit circle.")
 
-    def is_point_inside():
-        pass
+    def is_point_inside(self, point_x: (int, float), point_y: (int, float)):
+        distance_to_point = (self.x - point_x)**2 + (self.y - point_y)**2
+        if distance_to_point <= self.radius**2:
+            print(f"The point({point_x},{point_y}) is inside the circle.")
+        else:
+            print(f"The point({point_x},{point_y}) is not inside the circle.")
 
     @property
     def radius(self):
