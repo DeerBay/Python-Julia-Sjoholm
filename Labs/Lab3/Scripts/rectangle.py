@@ -1,34 +1,37 @@
 from geometry_shapes import GeometryShapes
 
-class Rectangel(GeometryShapes):
-    '''Class representing a rectangel'''
+class Rectangle(GeometryShapes):
+    '''Class representing a rectangle'''
     def __init__(self, x: int | float, y: int | float, height: int|float, width: int|float):
-        '''Initialize a rectangel with given x and y coordinates, height and width'''
+        '''Initialize a rectangle with given x and y coordinates, height and width'''
         super().__init__(x, y)
         self.height = height
         self.width = width
 
     def __str__(self):
-        '''Return a string representation of the rectangel'''
-        return f"Rectangel: Postion (x, y): ({self.x, self.y}), Height: {self.height}, Width: {self.width}"
+        '''Return a string representation of the rectangle'''
+        return f"Rectangle: Postion (x, y): ({self.x, self.y}), Height: {self.height}, Width: {self.width}"
     
     def __repr__(self):
         '''Return a string representation for developers'''
-        return f"Rectangel({self.x},{self.y},{self.height},{self.width})"
+        return f"Rectangle({self.x},{self.y},{self.height},{self.width})"
 
     def calculate_area(self):
-        '''Calcultate the area of the rectangel'''
+        '''Calcultate the area of the rectangle'''
         return self.height * self.width
     
     def circumference(self):
-        '''Calculate the circumference of the rectangel'''
+        '''Calculate the circumference of the rectangle'''
         return self.height*2 + self.width*2
     
     def is_square(self):
         if self.height == self.width:
-            return f"This rectangel is a square."
+            return f"This rectangle is a square."
         else:
-            return f"This rectangel is not a square."
+            return f"This rectangle is not a square."
+        
+    def is_inside():
+        pass
 
     @property
     def height(self):

@@ -13,6 +13,14 @@ class GeometryShapes:
         '''Return a string for developers'''
         return f"GeometryShapes({self.x =}, {self.y=})"
     
+    def translate(self, x_move_units: (int, float), y_move_units: (int, float)):
+        '''Method for moving a geometry shapes coordinates (ex. translate(1, 1)) move x and y one unit.'''
+        if not isinstance(x_move_units, (int, float)) or not isinstance(y_move_units, (int, float)):
+            raise TypeError("x_move_units and y_move_units must be numeric values (int or float).")
+        self.x += x_move_units
+        self.y += y_move_units
+        print(f"The new coordinates for the center of the object is = ({self.x},{self.y})")
+    
     @property
     def x(self):
         '''Getter of x'''
