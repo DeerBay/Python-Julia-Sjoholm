@@ -18,12 +18,12 @@ class Circle(GeometryShapes):
     def calculate_area(self):
         '''Calcultate the area of the circle. Returns float.'''
         import numpy as np
-        return np.pi * self.radius * self.radius
+        return np.pi * (self.radius)**2
 
     def circumference(self):
         '''Calcultate the circumference of the circle. Returns float.'''
         import numpy as np
-        return np.pi * self.radius**2
+        return 2 * np.pi * self.radius
 
     def is_unit_circle(self):
         '''Checks if the circle is a unit circle with center at (0, 0) and radius of 1.'''
