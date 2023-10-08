@@ -1,6 +1,6 @@
 from geometry_shapes import GeometryShapes
-from circle import Circle
-from rectangle import Rectangle
+from geometry_shapes import Circle
+from geometry_shapes import Rectangle
 import pytest
 '''Test of Geometyshapes class'''
 def test_valid_input_for_setup():
