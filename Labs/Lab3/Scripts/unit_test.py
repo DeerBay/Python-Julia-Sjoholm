@@ -1,5 +1,5 @@
 from geometry_shapes import GeometryShapes
-from circel import Circel
+from circle import Circle
 from rectangle import Rectangle
 import pytest
 '''Test of Geometyshapes class'''
