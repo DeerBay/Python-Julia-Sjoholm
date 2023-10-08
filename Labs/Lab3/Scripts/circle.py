@@ -14,10 +14,12 @@ class Circle(GeometryShapes):
         return f"Circle({self.x}, {self.y}, {self.radius})"
     
     def calculate_area(self):
-        pass
+        import numpy as np
+        return np.pi * self.radius * self.radius
 
-    def circumference():
-        pass
+    def circumference(self):
+        import numpy as np
+        return 2 * np.pi * self.radius
 
     def is_unit_circle():
         pass
