@@ -82,7 +82,7 @@ class Rectangle(GeometryShapes):
 
     def __str__(self):
         '''Return a string representation of the rectangle'''
-        return f"Rectangle: Postion (x, y): ({self.x, self.y}), Height: {self.height}, Width: {self.width}"
+        return f"Rectangle: Postion (x, y): {self.x, self.y}, Height: {self.height}, Width: {self.width}"
     
     def __repr__(self):
         '''Return a string representation for developers'''
@@ -150,7 +150,7 @@ class Circle(GeometryShapes):
 
     def __str__(self):
         '''Return a string representation of the rectangle'''
-        return f"Circle: Postion (x, y): ({self.x, self.y}), Radius: {self.radius}."
+        return f"Circle: Postion (x, y): {self.x, self.y}, Radius: {self.radius}."
     
     def __repr__(self):
         '''Return a string representation for developers'''
@@ -159,7 +159,8 @@ class Circle(GeometryShapes):
     def calculate_area(self):
         '''Calcultate the area of the circle. Returns float.'''
         import numpy as np
-        return np.pi * (self.radius)**2
+        area = np.pi * (self.radius)**2
+        return round(area, 2)
 
     def circumference(self):
         '''Calcultate the circumference of the circle. Returns float.'''
@@ -176,10 +177,7 @@ class Circle(GeometryShapes):
     def is_point_inside(self, point_x: (int, float), point_y: (int, float)):
         '''Checks if point (point_x, point_y) is inside circle. Returns bool (True/False).'''
         distance_to_point = (self.x - point_x)**2 + (self.y - point_y)**2
-        if distance_to_point <= self.radius**2:
-            print(f"The point({point_x},{point_y}) is inside the circle.")
-        else:
-            print(f"The point({point_x},{point_y}) is not inside the circle.")
+        return distance_to_point <= self.radius**2
 
     @property
     def radius(self):
@@ -188,9 +186,9 @@ class Circle(GeometryShapes):
     
     @radius.setter
     def radius(self, radius):
-        '''Setter of height. Only positive numeric values is valid input.'''
+        '''Setter of Radius. Only positive numeric values is valid input.'''
         if not isinstance(radius, (int, float)):
-            raise TypeError(f"Value of height can only be numeric. You wrote '{radius}'.")
+            raise TypeError(f"Value of radius can only be numeric. You wrote '{radius}'.")
         elif radius <= 0:
-            raise ValueError(f"Height must be positive. You wrote {radius}.")
+            raise ValueError(f"Radius must be positive. You wrote '{radius}'.")
         self._radius = radius

@@ -3,7 +3,8 @@ from geometry_shapes import Circle
 from geometry_shapes import Rectangle
 import pytest
 
-'''Test of Geometyshapes class'''
+# Test for Geometyshapes class
+
 def test_valid_input_for_setup():
     shape = GeometryShapes(-1, 2.2)
     assert shape.x == -1
@@ -57,11 +58,19 @@ def test_comparison_operators():
     assert rectangle1 >= rectangel2
     assert not rectangle1 <= rectangel2
 
-'''Test of Rectangle class'''
+# Test for Rectangle class
+
+def test_string_representaion_rectangle():
+    rectangle = Rectangle(1, 2, 3, 4)
+    assert str(rectangle) == "Rectangle: Postion (x, y): (1, 2), Height: 3, Width: 4"
+    assert repr(rectangle) == "Rectangle(1,2,3,4)"
+
 def test_valid_input_for_setup_rectangle():
-    shape = Rectangle(1, 2, 4, 5)
-    assert shape.x == 1
-    assert shape.y == 2
+    rectangle = Rectangle(1, 2, 4, 5)
+    assert rectangle.x == 1
+    assert rectangle.y == 2
+    assert rectangle.height == 4
+    assert rectangle.width == 5
 
 def test_invalid_input_type_for_height():
     with pytest.raises(TypeError) as exc_info:
@@ -103,7 +112,40 @@ def test_rectangle_is_square():
     assert rectangle2.is_square() == "This rectangle is not a square."
 
 def test_is_point_inside():
-    pass
+    rectangle1 = Rectangle(0, 0, 10, 10)
+    assert rectangle1.is_point_inside(1.2, 3.2) == True
+    assert rectangle1.is_point_inside(6, 6) == False
     
+# Test for Circle class
+    
+def test_string_representation_circle():
+    circle = Circle(1, 2, 3)
+    assert str(circle) == "Circle: Postion (x, y): (1, 2), Radius: 3."
+    assert repr(circle) == "Circle(1, 2, 3)"
 
-    
+def test_valid_input_for_setup_circle():
+    circle = Circle(1, 2, 4)
+    assert circle.x == 1
+    assert circle.y == 2
+    assert circle.radius == 4
+
+def test_invalid_input_value_for_radius():
+    with pytest.raises(ValueError) as exc_info:
+        circle = Circle(2, 0, -1)
+    assert str(exc_info.value) == "Radius must be positive. You wrote '-1'."
+
+    with pytest.raises(TypeError) as exc_info:
+        shape = Circle(2, 0, "minus ett")
+    assert str(exc_info.value) == "Value of radius can only be numeric. You wrote 'minus ett'."
+
+def test_calculate_area_circle():
+    circle = Circle(1, 3, 5)
+    assert circle.calculate_area == 78.54
+
+def test_circumference_circle():
+    pass
+def test_is_unit_circle():
+    pass
+def test_is_point_inside():
+    pass
+
