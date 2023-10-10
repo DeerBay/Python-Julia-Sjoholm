@@ -190,7 +190,7 @@ class Circle(GeometryShapes):
     def radius(self, radius):
         '''Setter of height. Only positive numeric values is valid input.'''
         if not isinstance(radius, (int, float)):
-            raise TypeError(f"Value of height can only be numeric. You wrote '{height}'.")
+            raise TypeError(f"Value of height can only be numeric. You wrote '{radius}'.")
         elif radius <= 0:
-            raise ValueError(f"Height must be positive. You wrote {height}.")
+            raise ValueError(f"Height must be positive. You wrote {radius}.")
         self._radius = radius
