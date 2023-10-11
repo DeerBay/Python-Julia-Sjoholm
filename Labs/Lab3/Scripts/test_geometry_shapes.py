@@ -111,7 +111,7 @@ def test_rectangle_is_square():
     assert rectangle1.is_square() == "This rectangle is a square."
     assert rectangle2.is_square() == "This rectangle is not a square."
 
-def test_is_point_inside():
+def test_is_point_inside_rectangle():
     rectangle1 = Rectangle(0, 0, 10, 10)
     assert rectangle1.is_point_inside(1.2, 3.2) == True
     assert rectangle1.is_point_inside(6, 6) == False
@@ -140,12 +140,20 @@ def test_invalid_input_value_for_radius():
 
 def test_calculate_area_circle():
     circle = Circle(1, 3, 5)
-    assert circle.calculate_area == 78.54
+    assert circle.calculate_area() == 78.54
 
 def test_circumference_circle():
-    pass
+    circle = Circle(1, 3, 6)
+    assert circle.circumference() == 37.69911184307752
+    
 def test_is_unit_circle():
-    pass
-def test_is_point_inside():
-    pass
+    circle1 = Circle(0, 0, 1)
+    circle2 = Circle(0, 0, 2)
+    assert circle1.is_unit_circle() == True
+    assert circle2.is_unit_circle() == False
+
+def test_is_point_inside_circle():
+    circle = Circle(0,0, 2)
+    assert circle.is_point_inside(1, 1) == True
+    assert circle.is_point_inside(5, 10) == False
 

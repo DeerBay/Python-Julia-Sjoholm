@@ -159,7 +159,7 @@ class Circle(GeometryShapes):
     def calculate_area(self):
         '''Calcultate the area of the circle. Returns float.'''
         import numpy as np
-        area = np.pi * (self.radius)**2
+        area = np.pi * self.radius* self.radius
         return round(area, 2)
 
     def circumference(self):
