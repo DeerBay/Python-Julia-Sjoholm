@@ -99,9 +99,9 @@ class Rectangle(GeometryShapes):
     def is_square(self):
         '''Checks if the rectangel is a square.'''
         if self.height == self.width:
-            return f"This rectangle is a square."
+            return True
         else:
-            return f"This rectangle is not a square."
+            return False
         
     def is_point_inside(self, point_x: (int, float), point_y: (int, float)):
         '''Checks if point (point_x, point_y) is inside rectangle. Returns bool (True/False).'''
@@ -111,7 +111,7 @@ class Rectangle(GeometryShapes):
         bottom_boundary = self._y - self.height/2
 
         return left_boundary <= point_x <= right_boundary and  bottom_boundary <= point_y <= top_boundary
-
+    
     @property
     def height(self):
         '''Getter of height'''
