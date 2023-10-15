@@ -6,7 +6,7 @@ from geometry_shapes import Cube
 from geometry_shapes import Sphere
 import pytest
 
-# Test for Geometyshapes2D class
+# Test for superclass Geometyshapes2D
 
 def test_setup_GeometryShapes2D():
     """
@@ -78,7 +78,7 @@ def test_comparison_operators_2D():
     assert rectangle1 >= rectangel2
     assert not rectangle1 <= rectangel2
 
-# Test for Rectangle class
+# Test for subclass Rectangle
 
 def test_setup_rectangle():
     """
@@ -164,7 +164,7 @@ def test_is_point_inside_rectangle():
     assert rectangle1.is_point_inside(1.2, 3.2) # True
     assert not rectangle1.is_point_inside(6, 6) # False
     
-# Test for Circle class
+# Test for subclass Circle
 
 def test_valid_input_for_setup_circle():
     """
@@ -235,7 +235,7 @@ def test_is_point_inside_circle():
     assert circle.is_point_inside(1, 1) == True
     assert circle.is_point_inside(5, 10) == False
 
-# Test for GeometryShapes3D class
+# Test for superclass GeometryShapes3D
 def test_setup_GeometryShapes3D():
     """
     Test the GeometryShapes3D initialization to ensure it sets the expected values to x, y and z attribute.
@@ -313,7 +313,7 @@ def test_comparison_operators_3D():
     assert not sphere_2 < sphere_1
     assert not sphere_1 <= cube_1
 
-# Test for Cube class
+# Test for subclass Cube
 
 def test_setup_cube():
     """
@@ -370,7 +370,7 @@ def test_is_point_inside_cube():
     assert not my_cube.is_point_inside(5.1, 5.4, 1) # False
 
 
-# test for Sphere class
+# test for subclass Sphere
 
 def test_setup_sphere():
     """
