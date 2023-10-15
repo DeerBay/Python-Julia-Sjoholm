@@ -352,7 +352,7 @@ class Cube(GeometryShapes3D):
         '''
         Return a string representation of the cube.
         '''
-        return f"Cube: Postion (x, y, z): {self.x, self.y, self.z}, Length: {self.side_length}."
+        return f"Cube: Position (x, y, z): {self.x, self.y, self.z}, Side length: {self.side_length}."
     
     def __repr__(self):
         '''
@@ -390,68 +390,68 @@ class Cube(GeometryShapes3D):
         half_side_length = self._side_length/2
         return self._x - half_side_length <= x <= self._x + half_side_length and self._y - half_side_length <= y <= self._y + half_side_length and self._z - half_side_length <= z <= self._z + half_side_length
 
-    class Sphere(GeometryShapes3D):
-        def __init__(self, x: int | float, y: int | float, z: int | float, radius: (int|float)):
-            '''
-            Initalize a sphere with given x, y and z coordinates and radius.
-            Only numeric values are accepted and positive values for radius.
-            '''
-            super().__init__(x, y, z)
-            if not isinstance(radius, (int|float)):
-                raise TypeError(f"Value of radius can only be numeric. You wrote '{radius}'.")
-            elif radius <= 0:
-                raise ValueError(f"Radius must be positive. You wrote '{radius}'.")
-            self._radius = radius
+class Sphere(GeometryShapes3D):
+    def __init__(self, x: int | float, y: int | float, z: int | float, radius: (int|float)):
+        '''
+        Initalize a sphere with given x, y and z coordinates and radius.
+        Only numeric values are accepted and positive values for radius.
+        '''
+        super().__init__(x, y, z)
+        if not isinstance(radius, (int|float)):
+            raise TypeError(f"Value of radius can only be numeric. You wrote '{radius}'.")
+        elif radius <= 0:
+            raise ValueError(f"Radius must be positive. You wrote '{radius}'.")
+        self._radius = radius
 
-        def __str__(self):
-            '''
-            Return a string representation of the sphere.
-            '''
-            return f"Cube: Position (x, y, z): {self.x, self.y, self.z}, Radius: {self.radius}."
-        
-        def __repr__(self):
-            '''
-            Return a string representation for developers.
-            '''
-            return  f"Sphere({self._x}, {self._y}, {self._z}, {self._radius})"
-        
-        @property
-        def radius(self):
-            '''
-            Getter of sphere radius
-            '''
-            return self._radius
-        
-        @property
-        def volume(self):
-            '''
-            Getter of volume for the sphere.
-            return float.
-            '''
-            import numpy as np
-            return (4/3) * np.pi * self.radius ** 3
-       
-        @property
-        def surface_area(self):
-            '''
-            Getter of surface area for the sphere. 
-            Returns a rounded float of two decimals.
-            '''
-            import numpy as np
-            surface_area = 4 * np.pi * self._radius**2
-            return round(surface_area, 2)
-        
-        def is_unit_sphere(self):
-            '''
-            Checks if the sphere is a unit sphere.
-            '''
-            return self._radius == 1
-        
-        def is_point_inside(self, x: (int, float), y: (int, float), z: (int|float)):
-            '''
-            Checks if point (x, y, z) is inside sphere. 
-            Returns bool (True/False).
-            Only numeric values are accepted.
-            '''
-            distance_to_point = (self._x - x)**2 + (self._y - y)**2 + (self._z - z)**2
-            return distance_to_point <= self._radius**2 # Compares with squared radius for optimization.
+    def __str__(self):
+        '''
+        Return a string representation of the sphere.
+        '''
+        return f"Sphere: Position (x, y, z): {self.x, self.y, self.z}, Radius: {self.radius}."
+    
+    def __repr__(self):
+        '''
+        Return a string representation for developers.
+        '''
+        return  f"Sphere({self._x}, {self._y}, {self._z}, {self._radius})"
+    
+    @property
+    def radius(self):
+        '''
+        Getter of sphere radius
+        '''
+        return self._radius
+    
+    @property
+    def volume(self):
+        '''
+        Getter of volume for the sphere.
+        return float.
+        '''
+        import numpy as np
+        return (4/3) * np.pi * self.radius ** 3
+    
+    @property
+    def surface_area(self):
+        '''
+        Getter of surface area for the sphere. 
+        Returns a rounded float of two decimals.
+        '''
+        import numpy as np
+        surface_area = 4 * np.pi * self._radius**2
+        return round(surface_area, 2)
+    
+    def is_unit_sphere(self):
+        '''
+        Checks if the sphere is a unit sphere.
+        '''
+        return self._radius == 1
+    
+    def is_point_inside(self, x: (int, float), y: (int, float), z: (int|float)):
+        '''
+        Checks if point (x, y, z) is inside sphere. 
+        Returns bool (True/False).
+        Only numeric values are accepted.
+        '''
+        distance_to_point = (self._x - x)**2 + (self._y - y)**2 + (self._z - z)**2
+        return distance_to_point <= self._radius**2 # Compares with squared radius for optimization.
