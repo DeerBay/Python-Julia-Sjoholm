@@ -15,13 +15,13 @@ class GeometryShapes2D:
         '''
         Return a position for a 2D gemetrical shape
         '''
-        return f"The position for this geometrical shape is (x, y): ({self.x}, {self.y})."
+        return f"The position for this 2D geometrical shape is (x, y): ({self.x}, {self.y})."
 
     def __repr__(self):
         '''
         Return a string for developers
         '''
-        return f"GeometryShapes2D({self.x=}, {self.y=})"
+        return f"GeometryShapes2D({self.x}, {self.y})"
 
     @property
     def x(self):
@@ -120,7 +120,7 @@ class Rectangle(GeometryShapes2D):
         '''
         Return a string representation of the rectangle for developers
         '''
-        return f"Rectangle({self.x=},{self.y=},{self.height=},{self.width=})"
+        return f"Rectangle({self.x}, {self.y}, {self.height}, {self.width})"
     
     @property
     def height(self):
@@ -150,13 +150,6 @@ class Rectangle(GeometryShapes2D):
         '''
         return self._height*2 + self._width*2
     
-    def is_square(self):
-        '''
-        Checks if the rectangel is a square.
-            Returns bool (True/False).
-        '''
-        return self._height == self._width
-        
     def is_point_inside(self, x: (int, float), y: (int, float)):
         '''
         Checks if coordinate (x, y) is inside rectangle object. 
@@ -165,6 +158,13 @@ class Rectangle(GeometryShapes2D):
         '''
         return self._x - self._width/2 <= x <= self._x + self._width/2 and  self._y - self._height/2 <= y <= self._y + self._height/2
 
+    def is_square(self):
+        '''
+        Checks if the rectangel is a square.
+            Returns bool (True/False).
+        '''
+        return self._height == self._width
+        
 class Circle(GeometryShapes2D):
     '''
     Class representation of circle
@@ -191,7 +191,7 @@ class Circle(GeometryShapes2D):
         '''
         Return a string representation for developers
         '''
-        return f"Circle({self.x=}, {self.y=}, {self.radius=})"
+        return f"Circle({self.x}, {self.y}, {self.radius})"
     
     @property
     def radius(self):
@@ -199,14 +199,6 @@ class Circle(GeometryShapes2D):
         Getter of circle radius.
         '''
         return self._radius
-
-    @property
-    def circumference(self):
-        '''
-        Getter of circumference of the circle. Returns float.
-        '''
-        import numpy as np
-        return 2 * np.pi * self._radius
     
     @property
     def area(self):
@@ -216,19 +208,27 @@ class Circle(GeometryShapes2D):
         import numpy as np
         area = np.pi * self._radius* self._radius
         return round(area, 2)
-    
-    def is_unit_circle(self):
-        '''
-        Checks if the circle is a unit circle with center at (0, 0) and radius of 1.
-        '''
-        return self._radius == 1 and self._x == 0 and self.y == 0
 
+    @property
+    def circumference(self):
+        '''
+        Getter of circumference of the circle. Returns float.
+        '''
+        import numpy as np
+        return 2 * np.pi * self._radius
+    
     def is_point_inside(self, x: (int, float), y: (int, float)):
         '''Checks if point (x, y) is inside circle. 
             Returns bool (True/False).  
         '''
         distance_to_point = (self._x - x)**2 + (self._y - y)**2
         return distance_to_point <= self._radius**2 # Compares with squared radius for optimization.
+    
+    def is_unit_circle(self):
+        '''
+        Checks if the circle is a unit circle with center at (0, 0) and radius of 1.
+        '''
+        return self._radius == 1 and self._x == 0 and self.y == 0
 
     
 class GeometryShapes3D:
@@ -259,7 +259,7 @@ class GeometryShapes3D:
         '''
         Return a string representation for developers.
         '''
-        return f"GeometryShapes3D({self.x=}, {self.y=}, {self.z=})"
+        return f"GeometryShapes3D({self.x}, {self.y}, {self.z})"
     
     @property
     def x(self):
@@ -284,6 +284,10 @@ class GeometryShapes3D:
     
     @property
     def volume(self):
+        return None
+    
+    @property
+    def surface_area(self):
         return None
     
     def translate_xyz(self, x: (int, float), y: (int, float), z: (int|float)):
@@ -413,7 +417,7 @@ class Sphere(GeometryShapes3D):
         '''
         Return a string representation for developers.
         '''
-        return  f"Sphere({self._x}, {self._y}, {self._z}, {self._radius})"
+        return  f"Sphere({self.x}, {self.y}, {self._z}, {self._radius})"
     
     @property
     def radius(self):
@@ -441,12 +445,6 @@ class Sphere(GeometryShapes3D):
         surface_area = 4 * np.pi * self._radius**2
         return round(surface_area, 2)
     
-    def is_unit_sphere(self):
-        '''
-        Checks if the sphere is a unit sphere.
-        '''
-        return self._radius == 1
-    
     def is_point_inside(self, x: (int, float), y: (int, float), z: (int|float)):
         '''
         Checks if point (x, y, z) is inside sphere. 
@@ -455,3 +453,9 @@ class Sphere(GeometryShapes3D):
         '''
         distance_to_point = (self._x - x)**2 + (self._y - y)**2 + (self._z - z)**2
         return distance_to_point <= self._radius**2 # Compares with squared radius for optimization.
+
+    def is_unit_sphere(self):
+        '''
+        Checks if the sphere is a unit sphere.
+        '''
+        return self._radius == 1
