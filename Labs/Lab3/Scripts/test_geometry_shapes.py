@@ -28,7 +28,7 @@ def test_string_representaion():
 def test_valid_input_translate_xy():
     '''Test translate_xy method adds the input values to x and y'''
     shape = Rectangle(2, 0, 1, 1)
-    shape.translate_xy(x_move_units=5, y_move_units=0)
+    shape.translate_xy(x=5, y=0)
     assert shape.x == 7
     assert shape.y == 0
 
