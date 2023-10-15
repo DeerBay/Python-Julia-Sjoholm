@@ -1,0 +1,124 @@
++----------------------------------------+
+|             GeometryShapes2D           |
++----------------------------------------+
+| -_x: float                             |
+| -_y: float                             |
++----------------------------------------+
+| +__init__(x: float, y: float)          |
+| +__str__(): str                        |
+| +__repr__(): str                       |
+| +x(): float                            |
+| +y(): float                            |
+| +area(): float                         |
+| +circumference(): float                |
+| +translate_xy(x: float, y: float): None|
+| +__eq__(other: GeometryShapes2D): bool |
+| +__ne__(other: GeometryShapes2D): bool |
+| +__gt__(other: GeometryShapes2D): bool |
+| +__lt__(other: GeometryShapes2D): bool |
+| +__ge__(other: GeometryShapes2D): bool |
+| +__le__(other: GeometryShapes2D): bool |
++----------------------------------------+
+                 |
+                 |
+                 v
++----------------------------------------+
+|               Rectangle                |
++----------------------------------------+
+| -_height: float                        |
+| -_width: float                         |
++----------------------------------------+
+| +__init__(x: float, y: float,          |
+|         height: float, width: float)   |
+| +__str__(): str                        |
+| +__repr__(): str                       |
+| +height(): float                       |
+| +width(): float                        |
+| +area(): float                         |
+| +circumference(): float                |
+| +is_point_inside(x: float, y: float): bool |
+| +is_square(): bool                     |
++----------------------------------------+
+                 |
+                 |
+                 v
++----------------------------------------+
+|               Circle                   |
++----------------------------------------+
+| -_radius: float                        |
++----------------------------------------+
+| +__init__(x: float, y: float,          |
+|         radius: float)                  |
+| +__str__(): str                        |
+| +__repr__(): str                       |
+| +radius(): float                       |
+| +area(): float                         |
+| +circumference(): float                |
+| +is_point_inside(x: float, y: float): bool |
+| +is_unit_circle(): bool                 |
++----------------------------------------+
+                 |
+                 |
+                 v
++----------------------------------------+
+|             GeometryShapes3D            |
++----------------------------------------+
+| -_x: float                             |
+| -_y: float                             |
+| -_z: float                             |
++----------------------------------------+
+| +__init__(x: float, y: float,          |
+|          z: float)                      |
+| +__str__(): str                        |
+| +__repr__(): str                       |
+| +x(): float                            |
+| +y(): float                            |
+| +z(): float                            |
+| +volume(): float                       |
+| +surface_area(): float                  |
+| +translate_xyz(x: float, y: float,     |
+|                z: float): None         |
+| +__eq__(other: GeometryShapes3D): bool |
+| +__ne__(other: GeometryShapes3D): bool |
+| +__gt__(other: GeometryShapes3D): bool |
+| +__lt__(other: GeometryShapes3D): bool |
+| +__ge__(other: GeometryShapes3D): bool |
+| +__le__(other: GeometryShapes3D): bool |
++----------------------------------------+
+                 |
+                 |
+                 v
++----------------------------------------+
+|                Cube                    |
++----------------------------------------+
+| -_side_length: float                   |
++----------------------------------------+
+| +__init__(x: float, y: float, z: float, |
+|          side_length: float)            |
+| +__str__(): str                        |
+| +__repr__(): str                       |
+| +side_length(): float                  |
+| +volume(): float                       |
+| +surface_area(): float                  |
+| +is_point_inside(x: float, y: float,   |
+|                  z: float): bool       |
++----------------------------------------+
+                 |
+                 |
+                 v
++----------------------------------------+
+|              Sphere                    |
++----------------------------------------+
+| -_radius: float                        |
++----------------------------------------+
+| +__init__(x: float, y: float, z: float, |
+|          radius: float)                 |
+| +__str__(): str                        |
+| +__repr__(): str                       |
+| +radius(): float                       |
+| +volume(): float                       |
+| +surface_area(): float                  |
+| +is_point_inside(x: float, y: float,   |
+|                  z: float): bool       |
+| +is_unit_sphere(): bool                 |
++----------------------------------------+
