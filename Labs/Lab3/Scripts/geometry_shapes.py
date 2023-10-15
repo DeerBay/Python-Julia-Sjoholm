@@ -1,9 +1,9 @@
 class GeometryShapes2D:
-    '''Base class for a 2D geometrical shape'''
+    '''Superclass for a 2D geometrical shape'''
     def __init__(self, x: (int|float), y:(int|float)):
         '''
         Initalize a position with given x and y coordinates for a geometrical shapes centerpoint.
-        Only numric values are accepted.
+        Only numeric values are accepted.
         '''
         if not isinstance(x, (int, float)) or not isinstance(y, (int, float)):
             '''Raises TypeError if type other than int or float'''
@@ -13,41 +13,47 @@ class GeometryShapes2D:
 
     def __str__(self):
         '''
-        Return a position for a 2D gemetrical shape
+        Return a string representation for of a 2D geometrical shape.
         '''
         return f"The position for this 2D geometrical shape is (x, y): ({self.x}, {self.y})."
 
     def __repr__(self):
         '''
-        Return a string for developers
+        Return a string representation of geometryShapes2D for developers.
         '''
         return f"GeometryShapes2D({self.x}, {self.y})"
 
     @property
     def x(self):
         '''
-        Getter of x
+        Getter of x.
         '''
         return self._x   
 
     @property
     def y(self):
         '''
-        Getter of y
+        Getter of y.
         '''
         return self._y
 
     @property
     def area(self):
+        '''
+        Getter of area.
+        '''
         return None
     
     @property
     def circumference(self):
+        '''
+        Getter of circumference.
+        '''
         return None
     
     def translate_xy(self, x: (int, float), y: (int, float)):
         '''
-        Method for moving a geometry shapes coordinates 
+        Method for moving a geometry shapes coordinates, 
         (ex. translate(1, 1)) move x and y one unit.
         '''
         if not isinstance(x, (int, float)) or not isinstance(y, (int, float)):
@@ -59,48 +65,61 @@ class GeometryShapes2D:
     def __eq__(self, other):
         '''
         Operator overload for equal.
+        Compares area.
+        Returns bool (True/False)
         '''
         return self.area == other.area
 
     def __ne__(self, other):
         '''
         Operator overload for not equal.
+        Compares area.
+        Returns bool (True/False)
         '''
         return self.area != other.area
     
     def __gt__(self, other):
         '''
         Operator overload for greater than.
+        Compares area.
+        Returns bool (True/False)
         '''
         return self.area > other.area
     
     def __lt__(self, other):
         '''
         Operator overload for less than.
+        Compares area.
+        Returns bool (True/False)
         '''
         return self.area < other.area
     
     def __ge__(self, other):
         '''
         Operator overload for greater than or equal to.
+        Compares area.
+        Returns bool (True/False)
         '''
         return self.area >= other.area
     
     def __le__(self, other):
         '''
         Operator overload for less than or equal to.
+        Compares area.
+        Returns bool (True/False)
         '''
         return self.area <= other.area
 
 
 class Rectangle(GeometryShapes2D):
     '''
-    Class representing a rectangle
+    Class Rectangle representing a rectangle. 
+    Subclass of GeometryShapes2D.
     '''
     def __init__(self, x: int | float, y: int | float, height: int|float, width: int|float):
         '''
         Initialize a rectangle with given x and y coordinates, height and width.
-            Only numreic values are accepted and positive numeric values for height and width.
+        Only numreic values are accepted and positive numeric values for height and width.
         '''
         super().__init__(x, y)
         if not isinstance(height, (int, float)) or not isinstance(width, (int, float)):
@@ -112,67 +131,70 @@ class Rectangle(GeometryShapes2D):
 
     def __str__(self):
         '''
-        Return a string representation of the rectangle
+        Return a string representation of the rectangle.
         '''
         return f"Rectangle: Postion (x, y): {self.x, self.y}, Height: {self.height}, Width: {self.width}"
     
     def __repr__(self):
         '''
-        Return a string representation of the rectangle for developers
+        Return a string representation of the rectangle for developers.
         '''
         return f"Rectangle({self.x}, {self.y}, {self.height}, {self.width})"
     
     @property
     def height(self):
         '''
-        Getter of rectangle height
+        Getter of rectangle height.
         '''
         return self._height
 
     @property
     def width(self):
         '''
-        Getter of rectangle width
+        Getter of rectangle width.
         '''
         return self._width
 
     @property
     def area(self):
         '''
-        Getter of area of the rectangle. Return float.
+        Getter of area of the rectangle. 
+        Return float.
         '''
         return self._height * self._width
     
     @property
     def circumference(self):
         '''
-        Getter of circumference of the rectangle. Return float.
+        Getter of circumference of the rectangle. 
+        Return float.
         '''
         return self._height*2 + self._width*2
     
     def is_point_inside(self, x: (int, float), y: (int, float)):
         '''
         Checks if coordinate (x, y) is inside rectangle object. 
-            Returns bool (True/False).
-            Only numeric values are accepted.
+        Returns bool (True/False).
+        Only numeric values are accepted.
         '''
         return self._x - self._width/2 <= x <= self._x + self._width/2 and  self._y - self._height/2 <= y <= self._y + self._height/2
 
     def is_square(self):
         '''
         Checks if the rectangel is a square.
-            Returns bool (True/False).
+        Returns bool (True/False).
         '''
         return self._height == self._width
         
 class Circle(GeometryShapes2D):
     '''
-    Class representation of circle
+    Class Circle representation of a circle. 
+    Subclass of geometrychapes2D.
     '''
     def __init__(self, x: int | float, y: int | float, radius):
         '''
         Initialize a circle with given x and y coordinates and radius.
-            Only numeric values are accepted and positive numric values for radius
+        Only numeric values are accepted and positive numric values for radius.
         '''
         super().__init__(x, y)
         if not isinstance(radius, (int, float)):
@@ -183,13 +205,13 @@ class Circle(GeometryShapes2D):
 
     def __str__(self):
         '''
-        Return a string representation of the rectangle
+        Return a string representation of the circle.
         '''
         return f"Circle: Postion (x, y): {self.x, self.y}, Radius: {self.radius}."
     
     def __repr__(self):
         '''
-        Return a string representation for developers
+        Return a string representation of circle for developers.
         '''
         return f"Circle({self.x}, {self.y}, {self.radius})"
     
@@ -203,7 +225,8 @@ class Circle(GeometryShapes2D):
     @property
     def area(self):
         '''
-        Calcultate the area of the circle. Returns float.
+        Getter of area for the circle. 
+        Returns rounded area of two decimals.
         '''
         import numpy as np
         area = np.pi * self._radius* self._radius
@@ -212,14 +235,16 @@ class Circle(GeometryShapes2D):
     @property
     def circumference(self):
         '''
-        Getter of circumference of the circle. Returns float.
+        Getter of circumference of the circle. 
+        Returns float.
         '''
         import numpy as np
         return 2 * np.pi * self._radius
     
     def is_point_inside(self, x: (int, float), y: (int, float)):
-        '''Checks if point (x, y) is inside circle. 
-            Returns bool (True/False).  
+        '''
+        Checks if point (x, y) is inside circle. 
+        Returns bool (True/False).  
         '''
         distance_to_point = (self._x - x)**2 + (self._y - y)**2
         return distance_to_point <= self._radius**2 # Compares with squared radius for optimization.
@@ -227,6 +252,7 @@ class Circle(GeometryShapes2D):
     def is_unit_circle(self):
         '''
         Checks if the circle is a unit circle with center at (0, 0) and radius of 1.
+        Returns bool (True/False).
         '''
         return self._radius == 1 and self._x == 0 and self.y == 0
 
@@ -257,37 +283,43 @@ class GeometryShapes3D:
 
     def __repr__(self):
         '''
-        Return a string representation for developers.
+        Return a string representation of 3D geometrical shape for developers.
         '''
         return f"GeometryShapes3D({self.x}, {self.y}, {self.z})"
     
     @property
     def x(self):
         '''
-        Getter of x
+        Getter of x.
         '''
         return self._x   
 
     @property
     def y(self):
         '''
-        Getter of y
+        Getter of y.
         '''
         return self._y
     
     @property
     def z(self):
         '''
-        Getter of z
+        Getter of z.
         '''
         return self._z
     
     @property
     def volume(self):
+        '''
+        Getter of volume.
+        '''
         return None
     
     @property
     def surface_area(self):
+        '''
+        Getter of surface area.
+        '''
         return None
     
     def translate_xyz(self, x: (int, float), y: (int, float), z: (int|float)):
@@ -305,41 +337,56 @@ class GeometryShapes3D:
     # Operator overloading for compairson of volume
     def __eq__(self, other):
         '''
-        Operator overload for equal. Compares volume.
+        Operator overload for equal. 
+        Compares volume.
+        Returns bool (True/False)
         '''
         return self.volume == other.volume
 
     def __ne__(self, other):
         '''
-        Operator overload for not equal. Compares volume.
+        Operator overload for not equal. 
+        Compares volume.
+        Returns bool (True/False)
         '''
         return self.volume != other.volume
     
     def __gt__(self, other):
         '''
-        Operator overload for greater than. Compares volume.
+        Operator overload for greater than. 
+        Compares volume.
+        Returns bool (True/False)
         '''
         return self.volume > other.volume
     
     def __lt__(self, other):
         '''
-        Operator overload for less than. Compares volume.
+        Operator overload for less than. 
+        Compares volume.
+        Returns bool (True/False)
         '''
         return self.volume < other.volume
     
     def __ge__(self, other):
         '''
-        Operator overload for greater than or equal to. Compares volume.
+        Operator overload for greater than or equal to. 
+        Compares volume.
+        Returns bool (True/False)
         '''
         return self.volume >= other.volume
     
     def __le__(self, other):
         '''
-        Operator overload for less than or equal to. Compares volume.
+        Operator overload for less than or equal to. 
+        Compares volume.
         '''
         return self.volume <= other.volume
 
 class Cube(GeometryShapes3D):
+    '''
+    Class Cube representing a cube. 
+    Subclass of GeometryShapes3D.
+    '''
     def __init__(self, x: int | float, y: int | float, z: int | float, side_length: (int|float)):
         '''
         Initalize a cube with given x, y and z coordinates and side length.
@@ -367,21 +414,23 @@ class Cube(GeometryShapes3D):
     @property
     def side_length(self):
         '''
-        Getter of cube side length
+        Getter of cube side length.
         '''
         return self._side_length
 
     @property
     def volume(self):
         '''
-        Getter of volume for the cube. Return float.
+        Getter of volume for the cube. 
+        Return float.
         '''
         return self._side_length ** 3
     
     @property
     def surface_area(self):
         '''
-        Getter of the surface area for the cube. Returns float.
+        Getter of the surface area for the cube. 
+        Returns float.
         '''
         return 6 * self.side_length ** 2
     
@@ -395,6 +444,9 @@ class Cube(GeometryShapes3D):
         return self._x - half_side_length <= x <= self._x + half_side_length and self._y - half_side_length <= y <= self._y + half_side_length and self._z - half_side_length <= z <= self._z + half_side_length
 
 class Sphere(GeometryShapes3D):
+    '''
+    Class Sphere representing a sphere. Subclass of GeometryShapes3D.
+    '''
     def __init__(self, x: int | float, y: int | float, z: int | float, radius: (int|float)):
         '''
         Initalize a sphere with given x, y and z coordinates and radius.
@@ -415,14 +467,14 @@ class Sphere(GeometryShapes3D):
     
     def __repr__(self):
         '''
-        Return a string representation for developers.
+        Return a string representation of the sphere for developers.
         '''
         return  f"Sphere({self.x}, {self.y}, {self._z}, {self._radius})"
     
     @property
     def radius(self):
         '''
-        Getter of sphere radius
+        Getter of sphere radius.
         '''
         return self._radius
     
@@ -430,7 +482,7 @@ class Sphere(GeometryShapes3D):
     def volume(self):
         '''
         Getter of volume for the sphere.
-        return float.
+        Returns float.
         '''
         import numpy as np
         return (4/3) * np.pi * self.radius ** 3
@@ -456,6 +508,7 @@ class Sphere(GeometryShapes3D):
 
     def is_unit_sphere(self):
         '''
-        Checks if the sphere is a unit sphere.
+        Checks if the sphere is a unit sphere. 
+        Return bool (True/False).
         '''
         return self._radius == 1
